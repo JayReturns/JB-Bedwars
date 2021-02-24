@@ -2,12 +2,13 @@ name: MAP_NAME
 players: MAX_ALLOWED_PLAYERS
 
 #Teams
-black:
-  bed_location: 0, 0, 0, World
-  spawn_location: 1, 1, 1, World
-WHITE:
-  bed_location: 0, 0, 0, World
-  spawn_location: 1, 1, 1, World
+teams:
+  black:
+    bed_location: 0, 0, 0, World
+    spawn_location: 1, 1, 1, World
+  WHITE:
+    bed_location: 0, 0, 0, World
+    spawn_location: 1, 1, 1, World
 
 spawner:
   iron: 1, 2, 3, World
