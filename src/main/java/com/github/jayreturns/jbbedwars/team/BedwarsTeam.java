@@ -6,7 +6,6 @@ import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,7 +26,7 @@ public class BedwarsTeam {
     }
 
     public boolean isFull() {
-        return members.size() >= GameManager.MAX_PLAYERS;
+        return members.size() >= GameManager.maxPlayers;
     }
 
     public boolean isEmpty() {

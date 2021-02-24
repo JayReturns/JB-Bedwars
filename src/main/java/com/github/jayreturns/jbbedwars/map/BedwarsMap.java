@@ -10,9 +10,10 @@ import java.util.Map;
 @Data
 public class BedwarsMap {
 
-    @NonNull  private int maxPlayers;
-    private Map<TeamColor, Location> bedLocations;
-    private Map<TeamColor, Location> spawnLocations;
+    @NonNull private String mapName;
+    @NonNull private int maxPlayers;
+    @NonNull private Map<TeamColor, Location> bedLocations;
+    @NonNull private Map<TeamColor, Location> spawnLocations;
 
     public Location getSpawnLocation(TeamColor color) {
         return spawnLocations.get(color);

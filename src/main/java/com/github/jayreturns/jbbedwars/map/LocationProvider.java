@@ -20,7 +20,7 @@ public class LocationProvider {
      * @return [Map1: SpawnLocations, Map2: BedLocations]
      * @throws FileNotFoundException
      */
-    public Map<TeamColor, Location>[] getLocationMaps(File file) throws FileNotFoundException {
+    public static Map<TeamColor, Location>[] getLocationMaps(File file) throws FileNotFoundException {
         if (!file.exists()) {
             throw new FileNotFoundException("File " + file.getAbsolutePath() + " not found during spawn location scan");
         }
@@ -32,7 +32,7 @@ public class LocationProvider {
         FileConfiguration config = convertFileToConfig(file);
 
         for (String key : config.getConfigurationSection("teams").getKeys(false)) {
-            TeamColor color = TeamColor.valueOf(key.split(".")[0].toUpperCase());
+            TeamColor color = TeamColor.valueOf(key.split("\\.")[0].toUpperCase());
             if (!config.isLocation("teams." + key)) continue;
             Location loc = config.getLocation("teams." + key);
             if (key.contains("bed")) {
@@ -46,7 +46,7 @@ public class LocationProvider {
         return maps;
     }
 
-    private FileConfiguration convertFileToConfig(File file) {
+    public static FileConfiguration convertFileToConfig(File file) {
         FileConfiguration result = new YamlConfiguration();
         try {
             result.load(file);
