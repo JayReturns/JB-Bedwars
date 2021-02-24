@@ -2,27 +2,25 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>com.github.jayreturns</groupId>
   <artifactId>JB-Bedwars</artifactId>
-  <version>0.1</version>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>JB-Bedwars</name>
+  <description>Bedwars plugin from Jay and Blocklin</description>
+  <url>https://github.com/JayReturns/JB-Bedwars</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <main.class>com.github.jayreturns.jbbedwars.Main</main.class>
   </properties>
 
   <build>
     <plugins>
-      <!-- Sets the Java version to 8 -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <!-- Sets the custom JARfile name (Project name without spaces is good) -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -31,13 +29,12 @@
           <finalName>${project.name}</finalName>
           <archive>
             <manifest>
-                <addClasspath>true</addClasspath>
-                <mainClass>Main</mainClass>
+              <addClasspath>true</addClasspath>
+              <mainClass>Main</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
-
     </plugins>
   </build>
   
@@ -54,11 +51,9 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.15.2-R0.1-SNAPSHOT</version>
+      <version>1.16.1-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
-
-    <!-- Java/Maven Libraries -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
