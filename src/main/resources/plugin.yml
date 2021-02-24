@@ -1,0 +1,5 @@
+name: JB-Bedwars
+main: com.github.jayreturns.jbbedwars.JBBedwars
+version: ${project.version}
+authors: [JayReturns, _Blocklin_]
+api-version: 1.16

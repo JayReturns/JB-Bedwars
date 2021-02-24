@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <main.class>com.github.jayreturns.jbbedwars.Main</main.class>
+    <main.class>com.github.jayreturns.jbbedwars.JBBedwars</main.class>
   </properties>
 
   <build>
@@ -36,6 +36,12 @@
         </configuration>
       </plugin>
     </plugins>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
   </build>
   
     <repositories>
@@ -57,7 +63,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.12</version>
+      <version>1.18.18</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
