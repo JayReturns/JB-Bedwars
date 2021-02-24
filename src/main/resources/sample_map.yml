@@ -1,0 +1,16 @@
+name: MAP_NAME
+players: MAX_ALLOWED_PLAYERS
+
+#Teams
+black:
+  bed_location: 0, 0, 0, World
+  spawn_location: 1, 1, 1, World
+WHITE:
+  bed_location: 0, 0, 0, World
+  spawn_location: 1, 1, 1, World
+
+spawner:
+  iron: 1, 2, 3, World
+  gold: 1, 2, 3, World
+  emerald: 1, 2, 3, World
+  diamond: 1, 2, 3, World
