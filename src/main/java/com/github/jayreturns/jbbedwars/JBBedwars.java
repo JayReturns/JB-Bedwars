@@ -17,7 +17,7 @@ public class JBBedwars extends JavaPlugin {
 	public void onEnable() {
 		instance = this;
 		getLogger().info("Plugin activated");
-		GameManager.MAX_PLAYERS = 8;
+		//GameManager.maxPlayers = 8;
 		registerListeners();
 		registerCommands();
 	}
