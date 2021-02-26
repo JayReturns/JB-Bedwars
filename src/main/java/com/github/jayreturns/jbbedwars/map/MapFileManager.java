@@ -1,17 +1,17 @@
 package com.github.jayreturns.jbbedwars.map;
 
 import com.github.jayreturns.jbbedwars.JBBedwars;
+import com.github.jayreturns.jbbedwars.item.Spawner;
 import com.github.jayreturns.jbbedwars.team.TeamColor;
+import com.google.common.collect.Lists;
 import org.bukkit.Location;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Level;
 
 public class MapFileManager {
@@ -28,9 +28,27 @@ public class MapFileManager {
         }
         Map<TeamColor, Location> spawnLocations = mapArray[0];
         Map<TeamColor, Location> bedLocations = mapArray[1];
+        List<Spawner> spawners = getSpawnersFromFile(file);
 
-        return new BedwarsMap(name, players, bedLocations, spawnLocations);
+        return new BedwarsMap(name, players, bedLocations, spawnLocations, spawners);
+    }
 
+    public static List<Spawner> getSpawnersFromFile(File file) {
+        List<Spawner> result = Lists.newArrayList();
+        FileConfiguration config = LocationProvider.convertFileToConfig(file);
+
+        ConfigurationSection spawnerSection = config.getConfigurationSection("spawner");
+        assert spawnerSection != null;
+        spawnerSection.getKeys(false).forEach(key -> {
+            String type = key.split("\\.")[1];
+            Spawner.ItemType itemType = Spawner.ItemType.valueOf(type.toUpperCase());
+            List<String> serializedLocations = config.getStringList("spawner." + key);
+            List<Location> deserializedLocations = Lists.newArrayList();
+            serializedLocations.forEach(loc -> {
+            });
+        });
+
+        return null;
     }
 
     public static List<File> getMapConfigurationFiles(File directory) throws FileNotFoundException {
