@@ -11,7 +11,11 @@ teams:
     spawn_location: 1, 1, 1, World
 
 spawner:
-  iron: 1, 2, 3, World
-  gold: 1, 2, 3, World
-  emerald: 1, 2, 3, World
-  diamond: 1, 2, 3, World
+  iron:
+    - 1, 2, 3, World
+  gold:
+    - 1, 2, 3, World
+  emerald:
+    - 1, 2, 3, World
+  diamond:
+    - 1, 2, 3, World
