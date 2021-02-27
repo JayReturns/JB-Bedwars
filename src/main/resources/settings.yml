@@ -1,5 +1,5 @@
 spawners:
-  bronze: 1
   iron: 2
   gold: 3
   emerald: 4
+  diamond: 5

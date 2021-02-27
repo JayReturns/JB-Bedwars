@@ -6,6 +6,7 @@ import com.github.jayreturns.jbbedwars.listener.PlayerJoinListener;
 import com.github.jayreturns.jbbedwars.listener.ShopMenuListener;
 import com.github.jayreturns.jbbedwars.shopkeeper.CreateShopkeeper;
 import com.github.jayreturns.jbbedwars.map.BedwarsMap;
+import com.github.jayreturns.jbbedwars.util.ConfigManager;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -18,6 +19,8 @@ public class JBBedwars extends JavaPlugin {
 
 	@Getter
 	private static JBBedwars instance;
+
+	private static ConfigManager configManager;
 
 	@Override
 	public void onEnable() {
@@ -36,6 +39,13 @@ public class JBBedwars extends JavaPlugin {
 
 	private void registerCommands() {
 		getCommand("shopkeeper").setExecutor(new CreateShopkeeper());
+	}
+
+	public static ConfigManager getConfigManager() {
+		if (configManager == null) {
+			configManager = new ConfigManager();
+		}
+		return configManager;
 	}
 
 	// For Testing
