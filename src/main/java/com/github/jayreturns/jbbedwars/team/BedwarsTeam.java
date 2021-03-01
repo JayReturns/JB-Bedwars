@@ -21,6 +21,8 @@ public class BedwarsTeam {
     @NonNull
     private BedLocation bedLocation;
     @NonNull
+    private Location spawnLocation;
+    @NonNull
     private int id;
 
     public boolean isMemberOfTeam(Player player) {
