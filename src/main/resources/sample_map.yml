@@ -1,6 +1,8 @@
 name: MAP_NAME
 players: MAX_ALLOWED_PLAYERS
 number_of_teams: 4
+# HAS TO MATCH with teams in the teams section
+teamcolors: black, WHITE
 
 #Teams
 teams:

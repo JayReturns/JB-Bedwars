@@ -13,25 +13,23 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.util.*;
 import java.util.logging.Level;
+import java.util.stream.Stream;
 
 public class MapFileManager {
 
     public static BedwarsMap getMapFromFile(File file) {
         FileConfiguration config = LocationProvider.convertFileToConfig(file);
+
         int players = config.getInt("players");
         String name = config.getString("name");
         int numberOfTeams = config.getInt("number_of_teams");
-        Map<TeamColor, Location>[] mapArray = new Map[0];
-        try {
-            mapArray = LocationProvider.getLocationMaps(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Map<TeamColor, Location> spawnLocations = mapArray[0];
-        Map<TeamColor, Location> bedLocations = mapArray[1];
+        List<Map<TeamColor, Location>> mapList = getLocationList(file);
+        Map<TeamColor, Location> spawnLocations = mapList.get(0);
+        Map<TeamColor, Location> bedLocations = mapList.get(1);
         List<Spawner> spawners = getSpawnersFromFile(file);
+        List<TeamColor> teamColors = getTeamColors(config);
 
-        return new BedwarsMap(name, players, bedLocations, spawnLocations, spawners, numberOfTeams);
+        return new BedwarsMap(name, players, bedLocations, spawnLocations, spawners, numberOfTeams, teamColors);
     }
 
     public static List<Spawner> getSpawnersFromFile(File file) {
@@ -75,6 +73,29 @@ public class MapFileManager {
     public static List<File> getMapConfigurationFiles() throws FileNotFoundException {
         File file = new File(JBBedwars.getInstance().getDataFolder().getAbsolutePath() + File.separator + "maps");
         return getMapConfigurationFiles(file);
+    }
+
+    private static List<TeamColor> getTeamColors(FileConfiguration config) {
+        String teams = config.getString("teamcolors");
+        if (teams == null) {
+            throw new NullPointerException("teamcolors is null");
+        }
+        String[] splitted = teams.split("\\.");
+        List<TeamColor> result = Lists.newArrayList();
+        Stream.of(splitted).map(s -> s.trim().toUpperCase())
+                .map(TeamColor::valueOf)
+                .forEach(result::add);
+        return result;
+    }
+
+    private static List<Map<TeamColor, Location>> getLocationList(File file) {
+        List<Map<TeamColor, Location>> result = Lists.newArrayList();
+        try {
+            result = LocationProvider.getLocationMaps(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }

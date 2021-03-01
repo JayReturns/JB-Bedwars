@@ -1,6 +1,7 @@
 package com.github.jayreturns.jbbedwars.map;
 
 import com.github.jayreturns.jbbedwars.team.TeamColor;
+import com.google.common.collect.Lists;
 import org.bukkit.Location;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LocationProvider {
@@ -20,7 +22,7 @@ public class LocationProvider {
      * @return [Map1: SpawnLocations, Map2: BedLocations]
      * @throws FileNotFoundException
      */
-    public static Map<TeamColor, Location>[] getLocationMaps(File file) throws FileNotFoundException {
+    public static List<Map<TeamColor, Location>> getLocationMaps(File file) throws FileNotFoundException {
         if (!file.exists()) {
             throw new FileNotFoundException("File " + file.getAbsolutePath() + " not found during spawn location scan");
         }
@@ -42,8 +44,8 @@ public class LocationProvider {
             }
         }
 
-        Map<TeamColor, Location>[] maps = new Map[]{spawnLocations, bedLocations};
-        return maps;
+        List<Map<TeamColor, Location>> result = Lists.newArrayList(spawnLocations, bedLocations);
+        return result;
     }
 
     public static FileConfiguration convertFileToConfig(File file) {
