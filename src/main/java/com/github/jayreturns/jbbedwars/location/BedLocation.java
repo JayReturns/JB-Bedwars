@@ -1,5 +1,6 @@
 package com.github.jayreturns.jbbedwars.location;
 
+import com.github.jayreturns.jbbedwars.team.BedwarsTeam;
 import com.github.jayreturns.jbbedwars.util.UnitPair;
 import lombok.Data;
 import org.bukkit.Location;
@@ -12,6 +13,7 @@ public class BedLocation {
 
     private Block bedBlock;
     private UnitPair<Location> locations;
+    private BedwarsTeam ownerTeam;
 
     public BedLocation(Location location) {
         Block b = location.getBlock();
