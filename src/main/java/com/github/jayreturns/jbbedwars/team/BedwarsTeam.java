@@ -1,6 +1,7 @@
 package com.github.jayreturns.jbbedwars.team;
 
 import com.github.jayreturns.jbbedwars.game.GameManager;
+import com.github.jayreturns.jbbedwars.location.BedLocation;
 import lombok.Data;
 import lombok.NonNull;
 import org.bukkit.Location;
@@ -17,7 +18,7 @@ public class BedwarsTeam {
     @NonNull
     private TeamColor teamColor;
     @NonNull
-    private Location bedLocation;
+    private BedLocation bedLocation;
     @NonNull
     private int id;
 
