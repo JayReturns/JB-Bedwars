@@ -1,14 +1,12 @@
 package com.github.jayreturns.jbbedwars;
 
-import com.github.jayreturns.jbbedwars.game.GameManager;
+import com.github.jayreturns.jbbedwars.listener.BedDestroyListener;
 import com.github.jayreturns.jbbedwars.listener.ClickShopkeeperListener;
-import com.github.jayreturns.jbbedwars.listener.PlayerJoinListener;
+import com.github.jayreturns.jbbedwars.listener.PlayerConnectionListener;
 import com.github.jayreturns.jbbedwars.listener.ShopMenuListener;
 import com.github.jayreturns.jbbedwars.shopkeeper.CreateShopkeeper;
-import com.github.jayreturns.jbbedwars.map.BedwarsMap;
 import com.github.jayreturns.jbbedwars.util.ConfigManager;
 import lombok.Getter;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -32,7 +30,9 @@ public class JBBedwars extends JavaPlugin {
 	}
 
 	private void registerListeners() {
-		new PlayerJoinListener(this);
+		new PlayerConnectionListener(this);
+		new BedDestroyListener(this);
+
 		new ClickShopkeeperListener(this);
 		new ShopMenuListener(this);
 	}
