@@ -14,7 +14,8 @@ import java.util.UUID;
 public class BedwarsTeam {
 
     private Set<UUID> members;
-    private boolean isAlive;
+    private boolean isAlive = true;
+    private boolean isBedActive = true;
     @NonNull
     private TeamColor teamColor;
     @NonNull
