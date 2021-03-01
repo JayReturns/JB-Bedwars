@@ -1,5 +1,6 @@
 name: MAP_NAME
 players: MAX_ALLOWED_PLAYERS
+number_of_teams: 4
 
 #Teams
 teams:

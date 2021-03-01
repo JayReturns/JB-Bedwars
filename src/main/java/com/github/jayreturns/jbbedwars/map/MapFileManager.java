@@ -20,6 +20,7 @@ public class MapFileManager {
         FileConfiguration config = LocationProvider.convertFileToConfig(file);
         int players = config.getInt("players");
         String name = config.getString("name");
+        int numberOfTeams = config.getInt("number_of_teams");
         Map<TeamColor, Location>[] mapArray = new Map[0];
         try {
             mapArray = LocationProvider.getLocationMaps(file);
@@ -30,7 +31,7 @@ public class MapFileManager {
         Map<TeamColor, Location> bedLocations = mapArray[1];
         List<Spawner> spawners = getSpawnersFromFile(file);
 
-        return new BedwarsMap(name, players, bedLocations, spawnLocations, spawners);
+        return new BedwarsMap(name, players, bedLocations, spawnLocations, spawners, numberOfTeams);
     }
 
     public static List<Spawner> getSpawnersFromFile(File file) {

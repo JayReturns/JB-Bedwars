@@ -17,6 +17,7 @@ public class BedwarsMap {
     @NonNull private Map<TeamColor, Location> bedLocations;
     @NonNull private Map<TeamColor, Location> spawnLocations;
     @NonNull private List<Spawner> spawners;
+    @NonNull private int numberOfTeams;
 
     public Location getSpawnLocation(TeamColor color) {
         return spawnLocations.get(color);
