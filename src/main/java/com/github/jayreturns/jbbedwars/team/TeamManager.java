@@ -4,7 +4,6 @@ import com.github.jayreturns.jbbedwars.game.GameManager;
 import com.github.jayreturns.jbbedwars.location.BedLocation;
 import com.google.common.collect.Maps;
 import lombok.Getter;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class TeamManager {
         }
     }
 
-    public static BedwarsTeam findTeamOfPlayer(Player player) {
+    public static BedwarsTeam getTeamOfPlayer(Player player) {
         BedwarsTeam playersTeam = null;
         for (BedwarsTeam team : teams) {
             if (team.isMemberOfTeam(player)) {
@@ -42,7 +41,7 @@ public class TeamManager {
     }
 
     public static boolean isPlayerInTeam(Player player) {
-        return findTeamOfPlayer(player) != null;
+        return getTeamOfPlayer(player) != null;
     }
 
     public static void addPlayerToTeam(Player player) {
@@ -56,7 +55,7 @@ public class TeamManager {
         if (!isPlayerInTeam(player)) {
             throw new IllegalArgumentException("Player is not in a team!");
         }
-        findTeamOfPlayer(player).removePlayer(player);
+        getTeamOfPlayer(player).removePlayer(player);
     }
 
     private static BedwarsTeam getRandomNonFullTeam() {
