@@ -1,5 +1,6 @@
 package com.github.jayreturns.jbbedwars.util;
 
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.TNT;
 import org.bukkit.enchantments.Enchantment;
@@ -69,10 +70,11 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder makePotion(PotionEffectType potionEffectType, int duration, int lvl){
+    public ItemBuilder makePotion(PotionEffectType potionEffectType, int duration, int lvl, Color color){
         item = new ItemStack(Material.POTION);
         PotionMeta pm = (PotionMeta) item.getItemMeta();
         pm.addCustomEffect(new PotionEffect(potionEffectType, duration, lvl), true);
+        pm.setColor(color);
         item.setItemMeta(pm);
         return this;
     }

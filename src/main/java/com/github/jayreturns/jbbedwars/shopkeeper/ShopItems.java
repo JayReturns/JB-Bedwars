@@ -1,24 +1,26 @@
 package com.github.jayreturns.jbbedwars.shopkeeper;
 
 import com.github.jayreturns.jbbedwars.util.ItemBuilder;
-import lombok.Data;
 import lombok.experimental.UtilityClass;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionBrewer;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.ArrayList;
+
 
 @UtilityClass
 public class ShopItems {
     //TODO: Give everything a price and setLore() for Items
+
     @UtilityClass
     public class Blocks{
-        ItemStack Wool = new ItemBuilder(Material.WHITE_WOOL, 16).toItemStack();
+        ItemStack Wool = new ItemBuilder(Material.WHITE_WOOL, 16).setLore(ShopItemDescription.WOOL.getLore()).toItemStack();
         ItemStack EndStone = new ItemStack(Material.END_STONE);
         ItemStack Wood = new ItemStack(Material.OAK_PLANKS);
-        ItemStack Hard_Clay = new ItemStack(Material.LEGACY_HARD_CLAY);
+        ItemStack Terracotta = new ItemStack(Material.TERRACOTTA);
     }
 
     @UtilityClass
@@ -50,7 +52,7 @@ public class ShopItems {
         }
 
         @UtilityClass
-        public class Bows{
+        public class Bows {
             ItemStack Bow = new ItemBuilder(Material.BOW).toItemStack();
             ItemStack PwrBow = new ItemBuilder(Material.BOW).addEntchantment(Enchantment.ARROW_DAMAGE, 1).toItemStack();
             ItemStack PwrPunchBow = new ItemBuilder(Material.BOW).addEntchantment(Enchantment.ARROW_DAMAGE, 1).addEntchantment(Enchantment.ARROW_KNOCKBACK, 1).toItemStack();
@@ -81,17 +83,67 @@ public class ShopItems {
 
     @UtilityClass
     public class Potions{
-            ItemStack Invisibility = new ItemBuilder().makePotion(PotionEffectType.INVISIBILITY, 30, 1).toItemStack();
-            ItemStack SpeedBoost = new ItemBuilder().makePotion(PotionEffectType.SPEED, 45, 2).toItemStack();
-            ItemStack JumpBoost = new ItemBuilder().makePotion(PotionEffectType.JUMP, 45, 5).toItemStack();
+            ItemStack Invisibility = new ItemBuilder().setName("Invisibility").makePotion(PotionEffectType.INVISIBILITY, 30, 1, Color.GRAY).toItemStack();
+            ItemStack SpeedBoost = new ItemBuilder().setName("SpeedBoost").makePotion(PotionEffectType.SPEED, 45, 2, Color.SILVER).toItemStack();
+            ItemStack JumpBoost = new ItemBuilder().setName("JumpBoost").makePotion(PotionEffectType.JUMP, 45, 5, Color.LIME).toItemStack();
     }
 
     @UtilityClass
     public class Utils{
+
             ItemStack Fireball = new ItemBuilder(Material.FIRE_CHARGE).setName("§cFireball").toItemStack();
             ItemStack TNT = new ItemStack(Material.TNT);
             ItemStack Golden_Apple = new ItemStack(Material.GOLDEN_APPLE);
             ItemStack Enderperl = new ItemBuilder(Material.ENDER_PEARL).toItemStack();
             ItemStack Water = new ItemBuilder(Material.WATER_BUCKET).toItemStack();
+    }
+
+    public ArrayList getItems(){
+        ArrayList<ItemStack> items = new ArrayList<>();
+        items.add(Blocks.EndStone);
+        items.add(Blocks.Wool);
+        items.add(Blocks.Wood);
+        items.add(Blocks.Terracotta);
+
+        items.add(Tools.PickAxe.Wood_Pickaxe);
+        items.add(Tools.PickAxe.Diamond_Pickaxe);
+        items.add(Tools.PickAxe.Golden_Pickaxe);
+        items.add(Tools.PickAxe.Iron_Pickaxe);
+
+        items.add(Tools.Bows.Arrow);
+        items.add(Tools.Bows.Bow);
+        items.add(Tools.Bows.PwrBow);
+        items.add(Tools.Bows.PwrPunchBow);
+
+        items.add(Tools.Melees.Diamond_Sword);
+        items.add(Tools.Melees.Iron_Sword);
+        items.add(Tools.Melees.Stone_Sword);
+        items.add(Tools.Melees.Wood_Sword);
+        items.add(Tools.Melees.Stick);
+
+        items.add(Tools.Axe.Wood_Axe);
+        items.add(Tools.Axe.Diamond_Axe);
+        items.add(Tools.Axe.Golden_Axe);
+        items.add(Tools.Axe.Iron_Axe);
+
+
+        items.add(Tools.Shear);
+
+        items.add(Utils.Golden_Apple);
+        items.add(Utils.Enderperl);
+        items.add(Utils.TNT);
+        items.add(Utils.Fireball);
+        items.add(Utils.Water);
+
+        items.add(Potions.Invisibility);
+        items.add(Potions.JumpBoost);
+        items.add(Potions.SpeedBoost);
+
+        items.add(Armor.Boots.Chain_Boots);
+        items.add(Armor.Boots.Iron_Boots);
+        items.add(Armor.Boots.Golden_Boots);
+        items.add(Armor.Boots.Diamond_Boots);
+
+        return items;
     }
 }

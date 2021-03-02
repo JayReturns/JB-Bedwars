@@ -20,7 +20,7 @@ public class ClickShopkeeperListener implements Listener {
         if(e.getRightClicked() instanceof Villager){
             e.setCancelled(true);
             ShopMenu shop = new ShopMenu();
-            shop.Menu().openShop(e.getPlayer());
+            shop.Blocks().openShop(e.getPlayer());
         }
     }
 

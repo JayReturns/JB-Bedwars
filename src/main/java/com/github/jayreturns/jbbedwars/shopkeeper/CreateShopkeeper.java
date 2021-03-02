@@ -1,6 +1,5 @@
 package com.github.jayreturns.jbbedwars.shopkeeper;
 
-import com.github.jayreturns.jbbedwars.team.BedwarsTeam;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;

@@ -18,8 +18,9 @@ public class ShopMenu {
 
     public ShopMenu(){
         shop.clear();
-        shop.setItem(0, new ItemBuilder(Material.NETHER_STAR).setName("§bQuickBuy").setLore("§aClick to Buy").toItemStack());
-        shop.setItem(1, new ItemBuilder(Material.LEGACY_HARD_CLAY).setName("§eBlocks").setLore("§aClick to Buy").toItemStack());
+//      QuickBuy
+//      shop.setItem(0, new ItemBuilder(Material.NETHER_STAR).setName("§bQuickBuy").setLore(" ").toItemStack());
+        shop.setItem(1, new ItemBuilder(Material.TERRACOTTA).setName("§eBlocks").setLore("§aClick to Buy").toItemStack());
         shop.setItem(2, new ItemBuilder(Material.STONE_SWORD).setName("§eMelees").setLore("§aClick to Buy").toItemStack());
         shop.setItem(3, new ItemBuilder(Material.IRON_BOOTS).setName("§eArmor").setLore("§aClick to Buy").toItemStack());
         shop.setItem(4, new ItemBuilder(Material.GOLDEN_PICKAXE).setName("§eTools").setLore("§aClick to Buy").toItemStack());
@@ -71,7 +72,7 @@ public class ShopMenu {
         shop.setItem(10, new ItemBuilder(Material.GREEN_STAINED_GLASS_PANE).setName("§f\u2191Categories").setLore("§f\u2193Items").toItemStack());
 
         shop.setItem(1+9*2, ShopItems.Blocks.Wool);
-        shop.setItem(2+9*2, ShopItems.Blocks.Hard_Clay);
+        shop.setItem(2+9*2, ShopItems.Blocks.Terracotta);
         shop.setItem(3+9*2, ShopItems.Blocks.Wood);
         shop.setItem(4+9*2, ShopItems.Blocks.EndStone);
         return this;
